@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>راشد الأسبوعي | Raed Mohammed</title>
+<title>رائد الأسبوعي | Raed Mohammed</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
@@ -141,6 +141,7 @@
 
   .history{ margin-top:40px; }
   .history h3{ font-family:'Markazi Text', serif; font-size:20px; color:var(--ink-soft); margin-bottom:10px;}
+  #historyList{ max-height: 420px; overflow-y: auto; padding-inline-end: 4px; }
   .hist-item{
     font-size:13px; color:var(--ink-soft); background:var(--surface);
     border:1px solid var(--line); border-radius:10px; padding:9px 14px;
@@ -154,7 +155,7 @@
   <header>
     <div class="brand">
       <span class="en">Raed Mohammed | Performance Marketing</span>
-      <span class="ar">منشورات راشد الأسبوعية</span>
+      <span class="ar">منشورات رائد الأسبوعية</span>
       <span class="tag">إعلانات فيديو · صناعة محتوى · صفحات هبوط</span>
     </div>
     <div style="text-align:left;">
@@ -337,7 +338,7 @@ async function loadHistory(){
       historyBox.style.display = 'block';
       historyList.innerHTML = '';
       const sorted = res.keys.sort().reverse();
-      for(const k of sorted.slice(0,8)){
+      for(const k of sorted.slice(0,100)){
         const item = document.createElement('div');
         item.className = 'hist-item';
         item.innerHTML = `<span>أسبوع ${k.replace('week:','')}</span><span>فتح ↺</span>`;
