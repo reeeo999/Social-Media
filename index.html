@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>رائد الأسبوعي | Raed Mohammed</title>
+<title>راشد الأسبوعي | Raed Mohammed</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@
   <header>
     <div class="brand">
       <span class="en">Raed Mohammed | Performance Marketing</span>
-      <span class="ar">منشورات رائد الأسبوعية</span>
+      <span class="ar">منشورات راشد الأسبوعية</span>
       <span class="tag">إعلانات فيديو · صناعة محتوى · صفحات هبوط</span>
     </div>
     <div style="text-align:left;">
@@ -344,8 +344,14 @@ async function loadHistory(){
         item.addEventListener('click', async () => {
           try{
             const r = await window.storage.get(k);
-            if(r && r.value){ renderPosts(JSON.parse(r.value)); }
-          } catch(e){}
+            if(r && r.value){
+              renderPosts(JSON.parse(r.value));
+              timeline.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              statusLine.textContent = 'تم فتح أسبوع ' + k.replace('week:', '');
+            }
+          } catch(e){
+            statusLine.textContent = 'تعذر فتح هذا الأسبوع';
+          }
         });
         historyList.appendChild(item);
       }
